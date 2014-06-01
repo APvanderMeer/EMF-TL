@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformFlow:Calls xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:transformFlow="http://urszeidler.de/callchain/2010/flowmodel">
+  <comments doc="This flow creates an atl copy file&#xD;&#xA;of the provided metamodel.&#xD;&#xA;This needs the topcased mapping &#xD;&#xA;model."/>
+  <call next="//@call.1" name="ecoreToMapping" in="//@artifacts.6 //@artifacts.8" out="//@artifacts.7" res="//@artifacts.0"/>
+  <call name="mappingToRule" in="//@artifacts.2" res="//@artifacts.1"/>
+  <artifacts xsi:type="transformFlow:AtlRes" name="Transformation" uri="/TypeCheckerGenerator2/ecoreToMapping.atl"/>
+  <artifacts xsi:type="transformFlow:AtlRes" name="mappingToRule" uri="/TypeCheckerGenerator2/mappingToRule.atl"/>
+  <artifacts xsi:type="transformFlow:ModelAlias" name="M" decoratedmodel="//@artifacts.7" aliasName="M"/>
+  <artifacts xsi:type="transformFlow:MM" name="ECORE" uri="#EMF"/>
+  <artifacts xsi:type="transformFlow:MM" name="MAPPING" uri="uri:http://www.topcased.org/Mapping/1.0"/>
+  <artifacts xsi:type="transformFlow:MM" name="TYPE RULE " uri="uri:http://www.emftext.org/language/textAML3"/>
+  <artifacts xsi:type="transformFlow:Model" name="IN" uri="/AML Models/typed-ucif.ecore" mm="//@artifacts.3"/>
+  <artifacts xsi:type="transformFlow:Model" name="OUT" uri="/TypeCheckerGenerator2/textAML3.ecore2textAML3.ecore.mapping" mm="//@artifacts.4"/>
+  <artifacts xsi:type="transformFlow:Model" name="RULES" uri="/AML Models/test.textAML3" mm="//@artifacts.5"/>
+</transformFlow:Calls>

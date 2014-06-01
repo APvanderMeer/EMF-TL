@@ -1,0 +1,101 @@
+module constraintgenExample
+
+var modelName = "ExampleModel"
+var inputDir = "input/Example"
+var tempDir = "temp/${modelName}"
+var outputDir = "output/${modelName}"
+
+var typeSystem = "ExampleTypeSystem"
+
+var inputLanguage = "textualExample"
+var inputExtension = "textualexample"
+
+var tempLanguage = "textualExample"
+var tempLanguageURI = "http://example.com/textualexample"
+var tempExtension = "textualexample"
+
+var outputLanguageURI = "http://example.com/example"
+var outputExtension = "example"
+
+var scopingPath = "ExampleTypeChecker/src/Examplescoping.asm"
+var typeCheckerPath = "ExampleTypeChecker/src/ExampleTypeChecker.asm";
+
+Workflow {
+	
+  bean = org.eclipse.emf.mwe.utils.StandaloneSetup {
+		platformUri = "ExampleTypeChecker/.."
+		registerGeneratedEPackage = "constraints.ConstraintsPackage"
+	    registerGeneratedEPackage = "textualexample.TextualexamplePackage"
+	    registerGeneratedEPackage = "example.ExamplePackage"
+	}
+  
+  component = org.eclipse.xtext.mwe.Reader {
+  	    path = inputDir
+  	    register = com.example.ExampleStandaloneSetup{}
+  	    load = {
+  	    	slot = "modelLinked"
+  	    	type = "Specification"
+  	    }
+  }
+
+  component = org.openarchitectureware.adapter.emf.atl.SimpleATLTransformerMWE2Component {
+    workDir = "${tempDir}"
+    metamodelPath = "MM -> ${tempLanguageURI}"
+    inputModelToMetamodelMap ="IN -> MM"
+    modelPath ="IN -> modelLinked"
+    asmFile = "${ExampleTypeChecker/src/Examplescoping.asm}"
+    refining = true
+  }
+
+  component = org.openarchitectureware.adapter.emf.atl.SimpleATLTransformerMWE2Component {
+    workDir ="${tempDir}"
+    metamodelPath ="TYPEDUCIF -> ${tempLanguageURI}"
+    metamodelPath ="CONSTRAINT -> http://constraints/1.0"
+    inputModelToMetamodelMap ="IN -> TYPEDUCIF"
+    outputModelToMetamodelMap ="OUT -> TYPEDUCIF"
+    outputModelToMetamodelMap ="constraint -> CONSTRAINT"
+    modelPath ="IN -> modelLinked"
+    modelPath ="OUT -> modelOut"
+    modelPath ="constraint -> constraintsOut"
+    asmFile = "${typeCheckerPath}"
+  }
+  
+  component = org.eclipse.emf.mwe.utils.Writer{
+        uri = "${tempDir}/${modelName}Constraints.constraints"
+        modelSlot = "constraintsOut"
+  }
+  
+    component = constraints.template.EclipseGeneratorComponent {
+        register = constraints.template.EclipseGeneratorSetup{}  	   
+        outlet = {
+	                  path = '${outputDir}/'
+                 }  
+        outlet = {
+        	          outletName='CONSTRAINTS'
+	                  path = '${outputDir}/'
+                 }
+  	    slot ="constraintsOut"
+  }
+
+  component = nl.tue.mdse.EclipseMWE2WorkflowComponent {
+        inputLocation = "${outputDir}/out.ecl"
+        outputSlot = "constraintresults"
+        constraintTerm = "gettypesset(Ts)"
+  }
+  
+  component = nl.tue.mdse.ResultMerger {
+     typeSystemSlot = "ExampleTypeChecker/input/${typeSystem}.textAML3"
+     resultsSlot = "constraintresults"
+     sourceMetaModelURI = "${tempLanguageURI}"
+     sourceProgramSlot = "modelOut"
+     targetMetaModelURI = "${outputLanguageURI}"
+     copyProgramSlot = "CopySlot"
+  }
+  
+  component = org.eclipse.emf.mwe.utils.Writer{
+        uri = "${outputDir}/${modelName}Copy.${outputExtension}"
+        modelSlot = "CopySlot"
+  }
+   
+
+}
