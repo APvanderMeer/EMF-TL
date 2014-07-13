@@ -1,6 +1,0 @@
-module HelloWorld 
-
-Workflow {
-component = nl.tue.mdse.EclipseMWE2WorkflowComponent {
-}
-}
