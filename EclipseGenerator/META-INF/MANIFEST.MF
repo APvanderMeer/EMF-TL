@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EclipseGenerator
+Bundle-SymbolicName: EclipseGenerator
+Bundle-Version: 0.1.0
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.1.0",
+ Constraints;bundle-version="1.0.0",
+ org.eclipse.xtext.generator;bundle-version="2.1.0",
+ org.eclipse.xtext;bundle-version="2.1.0",
+ org.eclipse.xtend2.lib;bundle-version="2.3.1"
+Import-Package: org.eclipse.xtext

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/textualMCRL2/src" modelPluginID="textualMCRL2"
+    modelName="Textualmcrl2" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false">
+  <foreignModel>textualmcrl2.ecore</foreignModel>
+  <genPackages prefix="Textualmcrl2" disposableProviderFactory="true" ecorePackage="textualmcrl2.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="textualmcrl2.ecore#//UnaryOps">
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//UnaryOps/Negation"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//UnaryOps/Minus"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//UnaryOps/ListSize"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="textualmcrl2.ecore#//BinaryOps">
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Projection"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Multiplication"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Division"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Modulo"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Addition"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Subtraction"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/LessThan"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/GreaterThan"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/LessEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/GreaterEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Element"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Cons"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Snoc"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Concat"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Equal"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/DisEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Conjunction"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Disjunction"/>
+      <genEnumLiterals ecoreEnumLiteral="textualmcrl2.ecore#//BinaryOps/Implication"/>
+    </genEnums>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Specification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Specification/atoms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Specification/processes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Specification/sorts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Specification/operations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Specification/equations"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Sort"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//ExpressionSort">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//ExpressionSort/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//StructureSort">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//StructureSort/constructors"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualmcrl2.ecore#//SortExpr"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Bool"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Pos"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Nat"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Int"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Real"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//ListSort">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//ListSort/elementSort"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//SetSort">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//SetSort/elementSort"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//BagSort">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//BagSort/elementSort"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//SortRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//SortRef/sortname"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//SortRef/env"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//HigherOrderSort">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//HigherOrderSort/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//HigherOrderSort/result"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Constructor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Constructor/projections"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Constructor/discriminator"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Projection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Projection/domain"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Op">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Op/ops"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Op/cons"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Eqn">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Eqn/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Eqn/equations"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Equation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Equation/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Equation/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Equation/right"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Atom">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Atom/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualmcrl2.ecore#//ProcessExpr"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//AtomicAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//AtomicAction/atomname"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//AtomicAction/env"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//AtomicAction/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Deadlock"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Tau"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Instance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Instance/arguments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Instance/processname"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Summation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Summation/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Block/child"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Block/atomnames"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Allow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Allow/child"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Allow/atomnames"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Hide">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Hide/child"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Hide/atomnames"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Rename">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Rename/child"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Rename/renamings"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Renaming">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Renaming/oldname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Renaming/newname"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Communication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Communication/communications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Communication/action"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//MultiAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//MultiAction/actionnames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//MultiAction/resultname"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualmcrl2.ecore#//CompositeAction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//CompositeAction/left"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Synchronization">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Synchronization/right"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//TimedAction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//TimedAction/right"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Sequence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Sequence/right"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Implication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Implication/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Implication/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Implication/elseAction"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//BoundedInitialisation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//BoundedInitialisation/right"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Parallelism">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Parallelism/right"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//LeftMerge">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//LeftMerge/right"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Choice">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Choice/right"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualmcrl2.ecore#//Nameable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Nameable/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualmcrl2.ecore#//DataExpression"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Identifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Identifier/varname"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Identifier/env"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Number">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//Number/value"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//BooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//BooleanLiteral/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualmcrl2.ecore#//Collection"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//SetEnumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//SetEnumeration/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//ListEnumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//ListEnumeration/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//BagEnumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//BagEnumeration/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//BagEnumElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//BagEnumElement/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//BagEnumElement/quantity"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//FunctionApplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//FunctionApplication/base"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//FunctionApplication/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//UnaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//UnaryExpression/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//UnaryExpression/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Quantification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Quantification/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Quantification/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//IdDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//IdDecl/sort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//IdDecl/name"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//BinaryExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//BinaryExpression/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//BinaryExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//BinaryExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Lambda">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Lambda/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Lambda/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//WhereClause"/>
+    <genClasses ecoreClass="textualmcrl2.ecore#//Process">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Process/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//Process/action"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="textualmcrl2.ecore#//ConstraintElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference textualmcrl2.ecore#//ConstraintElement/constraintvar"/>
+    </genClasses>
+    <genClasses ecoreClass="textualmcrl2.ecore#//ConstraintVar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute textualmcrl2.ecore#//ConstraintVar/number"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

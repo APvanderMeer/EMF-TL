@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Constraints/src"
+    modelPluginID="Constraints" modelName="Constraints" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>file:/C:/Users/ameer/Documents/CIF/Constraint%20Typing/constraints.ecore</foreignModel>
+  <genPackages prefix="Constraints" disposableProviderFactory="true" ecorePackage="constraints.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="constraints.ecore#//BinOp">
+      <genEnumLiterals ecoreEnumLiteral="constraints.ecore#//BinOp/Addition"/>
+    </genEnums>
+    <genClasses ecoreClass="constraints.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Program/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Program/variables"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//Program/root"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Constraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Constraint/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Constraint/equation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Constraint/localconstraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Constraint/localvariables"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Type">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Type/names"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Identifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//Identifier/name"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//Position/line"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//Position/column"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="constraints.ecore#//Equation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//Equation/left"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Node"/>
+    <genClasses ecoreClass="constraints.ecore#//NodeEquality">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//NodeEquality/right"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Variable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Variable/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//Variable/number"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Element">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Element/name"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//VariableEquality">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//VariableEquality/right"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Contains">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Contains/values"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//ListNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//ListNode/values"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//ObjectNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//ObjectNode/features"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Feature">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Feature/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//Feature/value"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//SelectNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//SelectNode/feature"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//SelectNode/object"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//VariableReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//VariableReference/var"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Literal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//Literal/value"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//BinaryNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//BinaryNode/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//BinaryNode/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//BinaryNode/operation"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

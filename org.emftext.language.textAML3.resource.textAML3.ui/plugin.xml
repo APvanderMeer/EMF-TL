@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax.ui">
+		<metaInformationProvider class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3UIMetaInformation" id="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3UIMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3Editor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="textAML3" icon="icons/editor_icon.gif" id="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3Editor" name="EMFText textAML3 Editor">
+			<contentTypeBinding contentTypeId="org.emftext.language.textAML3.resource.textAML3">
+			</contentTypeBinding>
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3PreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="TextAML3 Text Editor" id="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3PreferencePage" class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3PreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3SyntaxColoringPreferencePage" class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3SyntaxColoringPreferencePage" category="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3PreferencePage">
+		</page>
+		<page name="Brackets" id="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3BracketPreferencePage" class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3BracketPreferencePage" category="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3PreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3NewFileWizard" id="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3NewFileWizard" name="EMFText .textAML3 file">
+		</wizard>
+		<category id="org.emftext.runtime.ui.EMFTextProjectCategory" name="EMFText Project">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextProjectCategory" icon="/icons/default_new_icon.gif" class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3NewProjectWizard" id="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3NewProjectWizard" name="EMFText textAML3 project" project="true">
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3MarkerResolutionGenerator" markerType="org.emftext.language.textAML3.resource.textAML3.problem">
+		</markerResolutionGenerator>
+	</extension>
+	
+	<extension point="org.eclipse.core.filebuffers.annotationModelCreation">
+		<factory class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3AnnotationModelFactory" extensions="textAML3">
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type id="org.emftext.language.textAML3.resource.textAML3" name=".textAML3 File" base-type="org.eclipse.core.runtime.text" file-extensions="textAML3">
+		</content-type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider class="org.eclipse.ui.editors.text.TextFileDocumentProvider" extensions="textAML3" id="org.emftext.language.textAML3.resource.textAML3.ui.provider">
+		</provider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="org.emftext.language.textAML3.resource.textAML3.ui.occurences">
+		</type>
+		<type name="org.emftext.language.textAML3.resource.textAML3.ui.occurences.declaration" super="org.emftext.language.textAML3.resource.textAML3.ui.occurences">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="org.emftext.language.textAML3.resource.textAML3.ui.occurences" label="Occurrences (in .textAML3 files)" icon="/icons/occurrence_icon.gif" textPreferenceKey="textAML3.occurrenceIndication" textPreferenceValue="false" highlightPreferenceKey="textAML3.occurrenceHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="textAML3.occurrenceIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="textAML3.occurrenceIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="textAML3.occurrenceIndicationColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="textAML3.showOccurrenceInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="textAML3.isOccurrenceGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="textAML3.isOccurrenceGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="textAML3.occurrenceTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+		<specification annotationType="org.emftext.language.textAML3.resource.textAML3.ui.occurences.declaration" label="Declarations (in .textAML3 files)" textPreferenceKey="textAML3.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="textAML3.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="textAML3.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="textAML3.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="textAML3.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="textAML3.declarationTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+		<launchConfigurationTypeImage icon="/icons/launch_type_icon.gif" configTypeID="org.emftext.language.textAML3.resource.textAML3.ui.launchConfigurationType" id="org.emftext.language.textAML3.launchImage">
+		</launchConfigurationTypeImage>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+		<launchConfigurationTabGroup type="org.emftext.language.textAML3.resource.textAML3.ui.launchConfigurationType" class="org.emftext.language.textAML3.resource.textAML3.ui.launch.TextAML3LaunchConfigurationTabGroup" id="org.emftext.language.textAML3.launchConfigurationTabGroup" helpContextId="org.emftext.language.textAML3.launchConfigHelpContext">
+			<launchMode mode="debug" perspective="org.eclipse.debug.ui.DebugPerspective" description="Debug textAML3 model.">
+			</launchMode>
+			<launchMode mode="run" description="Run textAML3 model.">
+			</launchMode>
+		</launchConfigurationTabGroup>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchShortcuts">
+		<shortcut label="textAML3 Application" icon="/icons/launch_shortcut_icon.gif" helpContextId="org.emftext.language.textAML3.launch" modes="run,debug" class="org.emftext.language.textAML3.resource.textAML3.ui.launch.TextAML3LaunchShortcut" description="Launch a textAML3 model" id="org.emftext.language.textAML3.launchShortcut">
+			<description description="Run textAML3 model" mode="run">
+			</description>
+			<description description="Debug textAML3 model" mode="debug">
+			</description>
+			<contextualLaunch>
+				<enablement>
+					<with variable="selection">
+						<count value="1">
+						</count>
+						<iterate>
+							<test property="org.emftext.language.textAML3.isLaunchable">
+							</test>
+						</iterate>
+					</with>
+				</enablement>
+			</contextualLaunch>
+			<configurationType id="org.emftext.language.textAML3.resource.textAML3.ui.launchConfigurationType">
+			</configurationType>
+		</shortcut>
+	</extension>
+	
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+		<propertyTester id="org.emftext.language.textAML3.PropertyTester" type="java.lang.Object" namespace="org.emftext.language.textAML3" properties="isLaunchable" class="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3PropertyTester">
+		</propertyTester>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="org.emftext.language.textAML3.resource.textAML3.ui.debug.lineBreakpoint" markerType="org.emftext.language.textAML3.resource.textAML3.debug.lineBreakpoint.marker" super="org.eclipse.debug.core.breakpoint">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="org.emftext.language.textAML3.resource.textAML3.ui.debug.lineBreakpoint" label="Breakpoints (in .textAML3 files)" icon="/icons/breakpoint_icon.gif" textPreferenceKey="org.emftext.language.textAML3.resource.textAML3.ui.lineBreakpoint" textPreferenceValue="false" highlightPreferenceKey="org.emftext.language.textAML3.resource.textAML3.ui.lineBreakpointHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="org.emftext.language.textAML3.resource.textAML3.ui.lineBreakpointIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="org.emftext.language.textAML3.resource.textAML3.ui.lineBreakpointIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="org.emftext.language.textAML3.resource.textAML3.ui.lineBreakpointColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="org.emftext.language.textAML3.resource.textAML3.ui.showLineBreakpointInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="org.emftext.language.textAML3.resource.textAML3.ui.isLineBreakpointGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="org.emftext.language.textAML3.resource.textAML3.ui.isLineBreakpointGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="org.emftext.language.textAML3.resource.textAML3.ui.lineBreakpointTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.adapters">
+		<factory adaptableType="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3Editor" class="org.emftext.language.textAML3.resource.textAML3.ui.debug.TextAML3AdapterFactory">
+			<adapter type="org.eclipse.debug.ui.actions.IToggleBreakpointsTarget">
+			</adapter>
+		</factory>
+		<factory adaptableType="org.emftext.language.textAML3.resource.textAML3.debug.TextAML3DebugVariable" class="org.emftext.language.textAML3.resource.textAML3.ui.debug.TextAML3AdapterFactory">
+			<adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IElementLabelProvider">
+			</adapter>
+		</factory>
+		<factory adaptableType="org.emftext.language.textAML3.resource.textAML3.debug.TextAML3DebugVariable" class="org.emftext.language.textAML3.resource.textAML3.ui.debug.TextAML3AdapterFactory">
+			<adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IElementContentProvider">
+			</adapter>
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution id="org.emftext.language.textAML3.resource.textAML3.ui.RulerPopupActions" targetID="org.emftext.language.textAML3.resource.textAML3.EditorRuler">
+			<action id="org.emftext.language.textAML3.resource.textAML3.ui.toggleBreakpointAction" icon="icons/breakpoint_icon.gif" label="Toggle Breakpoint" class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate" menubarPath="debug">
+			</action>
+		</viewerContribution>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editorActions">
+		<editorContribution targetID="org.emftext.language.textAML3.resource.textAML3.ui.TextAML3Editor" id="org.emftext.language.textAML3.resource.textAML3.ui.BreakpointRulerActions">
+			<action id="org.emftext.language.textAML3.resource.textAML3.ui.debug.RulerToggleBreakpointAction" label="Add breakpoint" class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate" actionID="RulerDoubleClick">
+			</action>
+		</editorContribution>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.debugModelPresentations">
+		<debugModelPresentation id="org.emftext.language.textAML3.resource.textAML3.debugModel" class="org.emftext.language.textAML3.resource.textAML3.ui.debug.TextAML3DebugModelPresentation">
+		</debugModelPresentation>
+	</extension>
+	
+</plugin>

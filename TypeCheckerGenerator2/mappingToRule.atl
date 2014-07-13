@@ -1,0 +1,113 @@
+-- @atlcompiler atl2006
+--location	D:\javaprojekte\workspace32_useitGen\baseTransformations\topcased_mapping\mappingToRule.atl
+--location	D:\javaprojekte\workspace_INSS_subversion\baseTransformations\topcased_mapping\mappingToRule.atl
+query MappingtoRule = MAPPING!Mapping.allInstances()->asSequence()
+	->first().toString().writeTo('/TypeCheckerGenerator2/textAML32textAML3.atl'); -- Query Template
+ 
+	helper context MAPPING!Rule def : toDOpart() : String =
+'do {\n'
+--+'	if(not invar.propertyByName(\'inParameters\').oclIsUndefined()){\n'
+--+'		'+ self.targetElements->asSequence()->last().name + 'var.inParameter <- thisModule.createInParamters( invar.propertyByName(\'inParameters\') );\n'
+--+'	}\n'
+--+
+--'	if(not invar.propertyByName(\'outParameters\').oclIsUndefined()){\n'
+--+'		'+ self.targetElements->asSequence()->last().name + 'var.outParameter <- thisModule.createOutParamters( invar.propertyByName(\'outParameters\') );\n'
+--+'	}\n'
+--+
+--'	if(not invar.propertyByName(\'outTransistions\').oclIsUndefined()){\n'
+--+'		'+ self.targetElements->asSequence()->last().name + 'var.outTransitions <- thisModule.createOutTransitions( invar.propertyByName(\'outTransistions\') );\n'
+--+'	}\n'
+--+'\n invar.debug(\''+ self.name + '\');\n'
++  if (self.parameters.size() > 0) then self.targetElements.first().varName + ';' else '' endif
++' }\n }\n'
+
+--		'do {\n invar.debug(\''+ self.name + '\');\n } ' + '}\n';
+;
+
+helper context MAPPING!Mapping def : toString() : String =
+	if self."query".oclIsUndefined() then
+	'-- @atlcompiler atl2006 \n' +'module INPUT2OUTPUT;\n\n' +	'create ' +
+	self.targets->iterate(m; acc : String = '' |
+		acc + m.modelName + ' : ' + m.metamodelName +
+		if self.targets->asSequence()->last() <> m then ' , ' else ' ' endif)
+	+ ' from ' + self.sources->iterate(m; acc : String = '' |
+		acc + m.modelName + ' : ' + m.metamodelName +
+		if self.sources->asSequence()->last() <> m then ' , ' else ';\n' endif)
+	+ self.helpers->iterate(h; acc : String =
+		'' |acc + h.toString())
+	+ self.rules->iterate(r; acc : String = '' | acc + r.toString())
+	else
+		'query ' + self."query".name + ' = ' + self."query".value + ';'
+	endif;
+
+helper context MAPPING!Rule def : toString() : String =
+	'\n' + if self.isLazy then 'lazy ' else '' endif + 'rule ' + self.name +
+	if self.parameters->notEmpty() then ' (' + self.parameters->iterate(p; acc : String = '' |
+		acc + p.toString() + if self.parameters->asSequence()->last() <> p then ', ' else '' endif	) + ')'
+	else '' endif
+	+ if self.extensions->size() = 0 then '' else
+		' extends ' + self.extensions->iterate(e; acc : String = '' | acc + '\t' + e.value + '\n')
+		endif
+	+ ' {\n'
+	+ if self.parameters->notEmpty() then '' else
+		'\tfrom ' + self.varName + ' : ' + if (self.sourceModel.oclIsUndefined()) then '' + self.sourceClass else self.sourceModel.metamodelName + '!' + '"'+ self.sourceClass + '"' endif  + self.guardToString()   + '\n' endif
+	+  if self.localVariables->size() = 0 then '' else
+		'\tusing {\n' + self.localVariables->iterate(v; acc : String = '' | acc + '\t\t' + v.toString() + '\n') + '\t}'
+		endif
+	+ if self.targetElements->size() >0 then '\tto ' else '' endif + self.targetElements->iterate(t; acc : String = '' | acc + t.toString()
+	+ if self.targetElements->asSequence()->last() <> t then
+		',\n\t'
+	  else
+	  	'\n'
+	  endif
+	)
+	+self.toDOpart();
+
+helper context MAPPING!Rule def : guardToString() : String =
+	if not self.guard.oclIsUndefined() and self.guard <> '' then
+		' (' + self.guard + ')'
+	else
+		''
+	endif;
+
+helper context MAPPING!TargetElement def : toString() : String =
+	self.varName + ' : ' + if not self.loop.oclIsUndefined() then 'distinct ' else '' endif
+	+ self.targetModel.metamodelName + '!' 
+	+ '"' + self.name + '"' +
+	if not self.loop.oclIsUndefined() then ' foreach(' + self.loop.varName  + ' in ' + self.loop.loopExpression + ') ' else '' endif
+	+ ' (\n'
+	+ self.attributes->iterate(a; acc : String = '' | acc + '\t\t' + a.toString(self.parent.varName) +
+	if self.attributes->asSequence()->last() <> a then
+		','
+	else
+		''
+	endif
+	+ '\n')
+	+ '\t )';
+
+helper context MAPPING!ExpressionAttribute def : toString(varName : String) : String =
+	self.name + ' <- ' + self.value;
+
+helper context MAPPING!SourceAttribute def : toString(varName : String) : String =
+	self.name + ' <- ' + varName + '.' + self.name;
+
+helper context MAPPING!Helper def : toString() : String =
+	'helper ' + if not self."context".oclIsUndefined() then self."context".toString() else '' endif +
+	' def : ' + self.name+
+	if not self.parameters.isEmpty() then
+	'(' + self.parameters->iterate(p; acc : String = '' |
+		acc + p.toString() + if self.parameters->asSequence()->last() <> p then ', ' else '' endif
+	) + ')' else '' endif
+	  +' : ' + (if self.typeModel.oclIsUndefined() then '' else self.typeModel.metamodelName + '!' endif) + self.type + ' =\n' +
+	'\t' + self.content + ';\n\n';
+
+helper context MAPPING!Parameter def : toString() : String =
+	if self.name.oclIsUndefined() then '' else self.name endif + if self.type.oclIsUndefined() then '' else ' : ' + self.type endif;
+
+helper context MAPPING!Context def : toString() : String =
+	'context ' + if not self.model.oclIsUndefined() then self.model.metamodelName + '!' else '' endif
+	+ self.value + ' ';
+
+helper context MAPPING!Variable def : toString() : String =
+	self.name + ' : ' + if self.typeModel.oclIsUndefined() then '' else self.typeModel.metamodelName + '!' endif
+	+ self.typeClass + ' = ' + self.value;
